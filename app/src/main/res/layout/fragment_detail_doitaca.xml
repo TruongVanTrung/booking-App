@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/parentDoitac"
+    tools:context=".fragment.DetailDoitacaFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:id="@+id/homeDetailDoitac"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/header"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginLeft="9dp"
+                android:background="@drawable/ic_back"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/logo"
+                />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginRight="9dp"
+                android:background="@drawable/notification"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/relative_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/header"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="1dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="1dp"
+                android:paddingRight="9dp"
+                android:paddingLeft="9dp"
+                >
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="180dp"
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="0"
+                    app:iss_period="1000"
+                    tools:ignore="MissingClass" />
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/relative_slider" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+                android:id="@+id/nameDoitac"
+                android:text="Tên đối tác"
+                android:textStyle="bold"
+                android:textColor="#042f66"
+                android:textSize="21dp"
+                android:fontFamily="sans-serif-condensed"
+
+                ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tendanhmuc"
+                android:text="Danh muc"
+                android:textStyle=""
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginLeft="9dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_below="@+id/nameDoitac"
+                ></TextView>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_location"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tendanhmuc"
+                android:id="@+id/imageLocation"
+                android:layout_marginTop="-3dp"
+                android:layout_marginLeft="3dp"
+                ></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/location"
+                android:text="dia chi"
+                android:textStyle=""
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_below="@+id/tendanhmuc"
+                android:layout_toRightOf="@+id/imageLocation"
+                ></TextView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tienich"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="9dp"
+
+            >
+            <TextView
+                android:id="@+id/text_tienich"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Tiện nghi"
+                android:textColor="@color/xanh_dam"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+                ></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerViewtienich"
+                android:layout_below="@+id/text_tienich"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/phobien"
+            android:layout_below="@+id/tienich"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="9dp"
+            >
+            <TextView
+                android:id="@+id/text_phobien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Các địa điểm phổ biến lân cận"
+                android:textColor="@color/xanh_dam"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+
+                ></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerViewPhobien"
+                android:layout_below="@+id/text_phobien"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/room"
+            android:layout_below="@+id/phobien"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="9dp"
+            >
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Danh sách phòng"
+                android:textColor="@color/xanh_dam"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+
+                ></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerViewRoom"
+                android:layout_below="@+id/text"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ghichu_rela"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/room" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+                android:id="@+id/tc"
+                android:text="Giới thiệu về chúng tôi"
+                android:textStyle="bold"
+                android:textColor="#042f66"
+                android:textSize="21dp"
+                android:fontFamily="sans-serif-condensed"
+
+                ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ghichu"
+                android:text="Danh muc"
+                android:textStyle=""
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginLeft="9dp"
+                android:layout_below="@+id/tc"
+                android:fontFamily="sans-serif-condensed"
+                ></TextView>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

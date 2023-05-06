@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="1000dp"
+    android:fillViewport="true"
+    tools:context=".fragment.CategoryFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:id="@+id/homeCate"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/header"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginLeft="9dp"
+                android:background="@drawable/ic_back"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/logo"
+                />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginRight="9dp"
+                android:background="@drawable/notification"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/relative_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_below="@+id/header"
+            >
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relative_category"
+            android:layout_below="@id/relative_slider"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="9dp"
+            >
+            <TextView
+                android:id="@+id/text_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Danh mục"
+                android:textColor="@color/xanh_dam"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+
+                ></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_category"
+                android:layout_marginTop="-3dp"
+                android:id="@+id/recyclerViewCategory"
+
+                >
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/body"
+            android:layout_below="@+id/relative_category"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="9dp"
+            >
+            <TextView
+                android:id="@+id/text_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Danh sách nơi lưu trú theo"
+                android:textColor="@color/xanh_dam"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+
+                ></TextView>
+            <TextView
+                android:id="@+id/text_cate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Khách sạn"
+                android:textColor="@color/xanh_dam"
+                android:layout_toRightOf="@+id/text_product"
+                android:layout_marginLeft="6dp"
+
+                ></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerViewDoitac"
+                android:layout_below="@+id/text_product"
+
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

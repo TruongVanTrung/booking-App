@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="0dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="0dp"
+    android:layout_marginRight="-12dp"
+    android:layout_marginTop="-5dp"
+    android:id="@+id/cardViewPhobien"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rellativeCardPhobien"
+        >
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_baseline"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/imageLocation"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="3dp"
+            ></ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tenphobien"
+            android:text="ten tien ich"
+            android:textStyle=""
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_toRightOf="@+id/imageLocation"
+            android:layout_marginLeft="5dp"
+            ></TextView>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".HomeActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutHome"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/header"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginLeft="9dp"
+                android:background="@drawable/messenger"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/logo"
+                />
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginRight="9dp"
+                android:background="@drawable/notification"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/header" >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/edit_search"
+                android:hint="Tìm phòng..."
+                android:textStyle=""
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="21dp"
+                android:background="@drawable/edit_search"
+                android:drawableLeft="@drawable/ic_search"
+                android:paddingLeft="9dp"
+                ></EditText>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_below="@+id/search"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="6dp"
+                android:paddingRight="9dp"
+                android:paddingLeft="9dp"
+                >
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="180dp"
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="0"
+                    app:iss_period="1000"
+                    tools:ignore="MissingClass" />
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relative_category"
+            android:layout_below="@id/relative_slider"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="9dp"
+            >
+            <TextView
+                android:id="@+id/text_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Danh mục"
+                android:textColor="@color/xanh_dam"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+
+                ></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_category"
+                android:layout_marginTop="-3dp"
+                android:id="@+id/recyclerViewCategory"
+
+                >
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/body"
+            android:layout_below="@+id/relative_category"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="9dp"
+            >
+            <TextView
+                android:id="@+id/text_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Danh sách các nơi lưu trú"
+                android:textColor="@color/xanh_dam"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="9dp"
+
+                ></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerViewDoitac"
+                android:layout_below="@+id/text_product"
+
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

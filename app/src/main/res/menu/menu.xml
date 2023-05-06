@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+            android:id="@+id/home"
+            android:title="Trang chủ"
+            android:icon="@drawable/ic_home"
+            android:enabled="true"
+            app:cnb_backgroundColor="@color/white"
+            app:cnb_iconColor="@color/xanh_dam"
+            app:cnb_textColor="@color/xanh_dam"
+            app:cnb_iconTintMode="src_in" />
+
+        <item
+            android:id="@+id/category"
+            android:title="Danh mục"
+            android:icon="@drawable/ic_cate"
+            android:enabled="true"
+            app:cnb_backgroundColor="@color/white"
+            app:cnb_iconColor="@color/xanh_dam"
+            app:cnb_textColor="@color/xanh_dam"
+            app:cnb_iconTintMode="src_in" />
+
+        <item
+            android:id="@+id/discount"
+            android:title="Khuyến mãi "
+            android:icon="@drawable/ic_discount"
+            android:enabled="true"
+            app:cnb_backgroundColor="@color/white"
+            app:cnb_iconColor="@color/xanh_dam"
+            app:cnb_textColor="@color/xanh_dam"
+            app:cnb_iconTintMode="src_in" />
+
+        <item
+            android:id="@+id/cart"
+            android:title="Yêu thích"
+            android:icon="@drawable/ic_favorite"
+            android:enabled="true"
+            app:cnb_backgroundColor="@color/white"
+            app:cnb_iconColor="@color/xanh_dam"
+            app:cnb_textColor="@color/xanh_dam"
+            app:cnb_iconTintMode="src_in" />
+
+        <item
+            android:id="@+id/me"
+            android:title="Tôi"
+            android:icon="@drawable/ic_person"
+            android:enabled="true"
+            app:cnb_backgroundColor="@color/white"
+            app:cnb_iconColor="@color/xanh_dam"
+            app:cnb_textColor="@color/xanh_dam"
+            app:cnb_iconTintMode="src_in" />
+</menu>
