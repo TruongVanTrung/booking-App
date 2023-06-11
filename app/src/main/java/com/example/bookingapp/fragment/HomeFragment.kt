@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.bookingapp.Adapter.DoitacAdapter
 import com.example.bookingapp.Adapter.DanhmucAdapter
@@ -53,7 +54,7 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel("https://statics.vinpearl.com/dia-diem-du-lich-da-nang_1657940439.JPG","Các địa điểm nổi bật xung quanh Đà Nẵng."))
         imageList.add(SlideModel("https://statics.vinpearl.com/du-lich-da-nang_1657939501.JPG"))
         val imageSlider = view.findViewById<ImageSlider>(R.id.image_slider)
-        imageSlider.setImageList(imageList)
+        imageSlider.setImageList(imageList,ScaleTypes.CENTER_CROP)
         // Inflate the layout for this fragment
 
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
@@ -70,6 +71,7 @@ class HomeFragment : Fragment() {
             ) {
                 if (response.isSuccessful){
                     recyclerViewDoitac.apply {
+                        Log.e("response_partner", response.body().toString())
                         layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                         adapter = DoitacAdapter(response.body()!!)
                     }
@@ -78,7 +80,7 @@ class HomeFragment : Fragment() {
 
             override fun onFailure(call: Call<MutableList<DoitacModel>>, t: Throwable) {
                 t.printStackTrace()
-                Log.e("error", t.message.toString())
+                Log.e("error_partner", t.message.toString())
             }
 
         })

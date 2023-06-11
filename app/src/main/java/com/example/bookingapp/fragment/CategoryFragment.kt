@@ -65,8 +65,9 @@ class CategoryFragment : Fragment() {
         var tendanhmuc = arguments?.getString("tendanhmuc")
         text_cate.text = tendanhmuc
 
-        if (id != null && tendanhmuc !=null){
-            val doitac = serviceGenerator.getDanhmucDetail(id)
+        if (id != null ){
+            Log.e("ID", id.toString())
+            val doitac = serviceGenerator.getCategoryDetail(id)
             doitac.enqueue(object :
                 retrofit2.Callback<MutableList<DoitacModel>> {
                 override fun onResponse(
@@ -74,6 +75,7 @@ class CategoryFragment : Fragment() {
                     response: Response<MutableList<DoitacModel>>
                 ) {
                     if (response.isSuccessful){
+                        Log.e("resP", response.body()!!.toString())
                         recyclerViewDoitac.apply {
                             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
                             adapter = DoitacAdapter(response.body()!!)
@@ -87,10 +89,7 @@ class CategoryFragment : Fragment() {
                 }
 
             })
-        }else{
-
         }
-
         category.enqueue(object :
             retrofit2.Callback<MutableList<DanhmucModel>> {
             override fun onResponse(

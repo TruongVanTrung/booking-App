@@ -22,6 +22,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.preferencesKey
 import androidx.datastore.preferences.createDataStore
 import androidx.lifecycle.lifecycleScope
+import com.example.bookingapp.fragment.UserFragment
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.security.Key
@@ -41,8 +42,8 @@ class LoginActivity : AppCompatActivity() {
         val logo = findViewById<ImageView>(R.id.logo)
         val register = findViewById<TextView>(R.id.register)
         val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
-        val intent = Intent(this, MainActivity::class.java)
-
+        //val intent1 = Intent(this, PaymentActivity::class.java)
+        //val intent0 = Intent(this, UserFragment::class.java)
 
         button_login.setOnClickListener {
             val email : EditText = findViewById(R.id.edit_text1)
@@ -70,9 +71,17 @@ class LoginActivity : AppCompatActivity() {
                             editor.apply()
                             val getEmail = sharedPreferences.getString("Email","").toString()
                             val getId = sharedPreferences.getString("ID","").toString()
-                            Log.e("locallll",getEmail)
-                            Log.e("locall",getId)
-                            startActivity(intent)
+                            Log.e("email",getEmail)
+                            Log.e("id",getId)
+                            val activity = sharedPreferences.getInt("activity", 3)
+                            Log.e("ac", activity.toString())
+                            onBackPressed();
+//                            if (activity == 1){
+//                                startActivity(intent1)
+//                            }
+//                            else {
+//                                //startActivity(intent0)
+//                            }
                         }
                     }
 

@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookingApp"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="33">
         <activity
             android:name=".ProcesCancelOrderActivity"
             android:exported="false">

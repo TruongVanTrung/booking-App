@@ -32,12 +32,12 @@ class DanhmucAdapter(val danhmucModel: MutableList<DanhmucModel>): RecyclerView.
     }
 
     override fun onBindViewHolder(holder: DanhmucViewHolder, position: Int) {
-        Picasso.get().load(danhmucModel[position].imagedanhmuc).into(holder.imagedanhmuc)
-        holder.tendanhmuc.text = danhmucModel[position].tendanhmuc
+        Picasso.get().load(danhmucModel[position].image).resize(100, 100).centerInside().into(holder.imagedanhmuc)
+        holder.tendanhmuc.text = danhmucModel[position].name
 
         holder.itemView.setOnClickListener { view ->
             val id : Int ?= danhmucModel[position].id
-            val tendanhmuc : String? = danhmucModel[position].tendanhmuc
+            val tendanhmuc : String? = danhmucModel[position].name
 
             val bundle = Bundle()
             if (id != null) {

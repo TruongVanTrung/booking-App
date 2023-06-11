@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.bookingapp.LoginActivity
 import com.example.bookingapp.OrderUserActivity
 import com.example.bookingapp.R
@@ -49,13 +50,17 @@ class UserFragment : Fragment() {
         val sharePreference =  activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
         val getEmail = sharePreference.getString("Email","").toString()
         val getID = sharePreference.getString("ID","").toString()
+        val editor =  sharePreference.edit().putInt("activity",0)
+        editor.apply()
         Log.e("local",getEmail)
         Log.e("responseID", getID)
         email.text = getEmail
         login.setOnClickListener {
             activity?.let {
+                val getA = sharePreference.getInt("activity",3).toString()
+                Log.e("activity", getA)
                 it.startActivity(Intent(it, LoginActivity::class.java))
-                activity?.finish()
+//                activity?.finish()
             }
         }
 
@@ -68,10 +73,15 @@ class UserFragment : Fragment() {
 
         logout.setOnClickListener {
             activity?.let {
-                it.startActivity(Intent(it, LoginActivity::class.java))
-                activity?.finish()
-                sharePreference.edit().remove("Email").commit();
-                sharePreference.edit().remove("ID").commit();
+//                it.startActivity(Intent(it, LoginActivity::class.java))
+//                activity?.finish()
+                if (getID != null){
+                    email.text = "Email"
+                    sharePreference.edit().remove("Email").commit();
+                    sharePreference.edit().remove("ID").commit();
+                }else{
+                    Toast.makeText(activity,"Bạn chưa đăng nhập",Toast.LENGTH_LONG).show()
+                }
             }
         }
 

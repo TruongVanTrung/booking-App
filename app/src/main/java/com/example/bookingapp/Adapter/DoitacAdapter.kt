@@ -33,18 +33,21 @@ class DoitacAdapter(val doitacModel: MutableList<DoitacModel>):RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: DoitacViewHolder, position: Int) {
-        Picasso.get().load(doitacModel[position].imagedoitac).into(holder.imagedoitac)
-        holder.tendoitac.text = doitacModel[position].tendoitac
-        holder.tendanhmuc.text = doitacModel[position].tendanhmuc
-        holder.location.text = doitacModel[position].location.toString().take(30)
-        Log.e("LinkImage", doitacModel[position].imagedoitac.toString())
+        Picasso.get().load(doitacModel[position].image?.get(0)).into(holder.imagedoitac)
+        holder.tendoitac.text = doitacModel[position].name
+        holder.tendanhmuc.text = doitacModel[position].namecategory
+        holder.location.text = doitacModel[position].address.toString().take(48)
+        Log.e("LinkImage", doitacModel[position].image.toString())
 
         holder.itemView.setOnClickListener { view ->
             val id : Int ?= doitacModel[position].id
-            val tendoitac : String? = doitacModel[position].tendoitac
-            val tendanhmuc : String? = doitacModel[position].tendanhmuc
-            val location : String? = doitacModel[position].location
+            val tendoitac : String? = doitacModel[position].name
+            val tendanhmuc : String? = doitacModel[position].namecategory
+            val location : String? = doitacModel[position].address
             val note : String? = doitacModel[position].note
+            val utilities : ArrayList<String>? = doitacModel[position].utilities
+            val popular : ArrayList<String>? = doitacModel[position].popular
+            val image : ArrayList<String>? = doitacModel[position].image
 
             val bundle = Bundle()
             if (id != null) {
@@ -54,6 +57,9 @@ class DoitacAdapter(val doitacModel: MutableList<DoitacModel>):RecyclerView.Adap
             bundle.putString("tendanhmuc", tendanhmuc)
             bundle.putString("location", location)
             bundle.putString("note", note)
+            bundle.putStringArrayList("utilities", utilities)
+            bundle.putStringArrayList("popular", popular)
+            bundle.putStringArrayList("image", image)
             val activity =view.context as AppCompatActivity
             val ac = view.context as FragmentActivity
             val detailDoitacFragment = DetailDoitacaFragment()

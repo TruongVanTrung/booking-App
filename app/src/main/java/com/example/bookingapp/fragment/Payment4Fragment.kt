@@ -24,10 +24,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Payment3Fragment.newInstance] factory method to
+ * Use the [Payment4Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Payment3Fragment : Fragment() {
+class Payment4Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -44,14 +44,15 @@ class Payment3Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view : View = inflater.inflate(R.layout.fragment_payment3, container, false)
+        // Inflate the layout for this fragment
+        val view : View = inflater.inflate(R.layout.fragment_payment4, container, false)
 
-        val recyclerView3 = view.findViewById<RecyclerView>(R.id.recyclerPayment3)
+        val recyclerView4 = view.findViewById<RecyclerView>(R.id.recyclerPayment4)
 
         val sharePreference = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
         val getID = sharePreference.getString("ID","").toString()
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-        val detail = serviceGenerator.getAllDetailPayment1(getID.toInt(),3)
+        val detail = serviceGenerator.getAllDetailPayment1(getID.toInt(),2)
         detail.enqueue(object :
             retrofit2.Callback<MutableList<DetailOrderModel>> {
             override fun onResponse(
@@ -60,7 +61,7 @@ class Payment3Fragment : Fragment() {
             ) {
                 if (response.isSuccessful){
                     //val imageList = ArrayList<DetailOrderModel>() // Create image list
-                    recyclerView3.apply {
+                    recyclerView4.apply {
                         layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                         adapter = DetailOrderAdapter2(response.body()!!)
                     }
@@ -86,12 +87,12 @@ class Payment3Fragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Payment3Fragment.
+         * @return A new instance of fragment Payment4Fragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Payment3Fragment().apply {
+            Payment4Fragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

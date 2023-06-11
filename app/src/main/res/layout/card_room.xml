@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="3dp"
     app:cardUseCompatPadding="true"
     app:cardElevation="3dp"
@@ -11,200 +12,209 @@
     android:layout_marginTop="0dp"
     android:id="@+id/cardViewRoom"
     >
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+    <RelativeLayout
         android:id="@+id/rellativeCardRoom"
-        >
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/ic_baseline"
-            android:layout_alignParentLeft="true"
+        android:layout_width="match_parent"
+        android:layout_height="237dp">
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/imageRoom"
-            android:layout_marginTop="-18dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            ></ImageView>
+            android:paddingLeft="9dp"
+            android:paddingRight="9dp"
+            app:cardCornerRadius="1dp"
+            app:cardElevation="1dp"
+            app:cardUseCompatPadding="true">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                app:iss_auto_cycle="true"
+                app:iss_delay="0"
+                app:iss_period="1000"
+                tools:ignore="MissingClass" />
+        </androidx.cardview.widget.CardView>
         <TextView
+            android:id="@+id/tenphong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tenphong"
-            android:text="ten phòng"
-            android:textStyle="bold"
-            android:textColor="#042f66"
-            android:textSize="21dp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_toRightOf="@+id/imageRoom"
             android:layout_marginLeft="5dp"
-            ></TextView>
+            android:layout_toRightOf="@+id/imageRoom"
+            android:fontFamily="sans-serif-condensed"
+            android:text="ten phòng"
+            android:textColor="#042f66"
+            android:textSize="18dp"
+            android:textStyle="bold"></TextView>
+
         <ImageView
+            android:id="@+id/imagepeople"
             android:layout_width="18dp"
             android:layout_height="18dp"
-            android:src="@drawable/ic_people"
-            android:id="@+id/imagepeople"
-            android:layout_marginTop="-12dp"
             android:layout_below="@+id/imageRoom"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/ic_people"
 
             ></ImageView>
+
         <TextView
+            android:id="@+id/text_people"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="số người"
-            android:textColor="#042f66"
-            android:textSize="19dp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_toRightOf="@+id/imagepeople"
             android:layout_below="@+id/imageRoom"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="-17dp"
-            android:id="@+id/text_people"
-            ></TextView>
+            android:layout_toRightOf="@+id/imagepeople"
+            android:fontFamily="sans-serif-condensed"
+            android:text="số người"
+            android:layout_marginTop="9dp"
+            android:textColor="#042f66"
+
+            android:textSize="19dp"></TextView>
+
         <ImageView
+            android:id="@+id/imagegiuong"
             android:layout_width="18dp"
             android:layout_height="18dp"
-            android:src="@drawable/ic_baseline_bed_24"
-            android:id="@+id/imagegiuong"
-            android:layout_marginTop="-12dp"
             android:layout_below="@+id/imageRoom"
-            android:layout_toRightOf="@+id/text_people"
             android:layout_marginLeft="9dp"
-            ></ImageView>
+            android:layout_marginTop="14dp"
+            android:layout_toRightOf="@+id/text_people"
+            android:src="@drawable/ic_baseline_bed_24"></ImageView>
+
         <TextView
+            android:id="@+id/text_giuong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/imageRoom"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/imagegiuong"
+            android:fontFamily="sans-serif-condensed"
             android:text="số giuong"
             android:textColor="#042f66"
-            android:textSize="19dp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_toRightOf="@+id/imagegiuong"
-            android:layout_below="@+id/imageRoom"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="-17dp"
-            android:id="@+id/text_giuong"
-            ></TextView>
+            android:layout_marginTop="9dp"
+            android:textSize="19dp"></TextView>
+
         <ImageView
+            android:id="@+id/imagewifi"
             android:layout_width="18dp"
             android:layout_height="18dp"
-            android:src="@drawable/ic_wifi"
-            android:id="@+id/imagewifi"
-            android:layout_marginTop="6dp"
             android:layout_below="@+id/text_people"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
-            ></ImageView>
+            android:layout_marginTop="6dp"
+            android:src="@drawable/ic_wifi"></ImageView>
+
         <TextView
+            android:id="@+id/text_wifi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/text_people"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/imagepeople"
+            android:fontFamily="sans-serif-condensed"
             android:text="Wifi Free"
             android:textColor="#042f66"
-            android:textSize="19dp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_toRightOf="@+id/imagepeople"
-            android:layout_below="@+id/text_people"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="1dp"
-            android:id="@+id/text_wifi"
-            ></TextView>
+            android:textSize="15dp"></TextView>
+
         <ImageView
+            android:id="@+id/imagebus"
             android:layout_width="18dp"
             android:layout_height="18dp"
-            android:src="@drawable/ic_bus"
-            android:id="@+id/imagebus"
-            android:layout_marginTop="6dp"
             android:layout_below="@+id/text_wifi"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
-            ></ImageView>
+            android:layout_marginTop="6dp"
+            android:src="@drawable/ic_bus"></ImageView>
+
         <TextView
+            android:id="@+id/text_bus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xe đưa đón miễn phí"
-            android:textColor="#042f66"
-            android:textSize="19dp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_toRightOf="@+id/imagepeople"
             android:layout_below="@+id/text_wifi"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="1dp"
-            android:id="@+id/text_bus"
-            ></TextView>
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/imagepeople"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Xe đưa đón miễn phí"
+            android:textColor="#042f66"
+            android:textSize="15dp"></TextView>
+
         <TextView
+            android:id="@+id/note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ghi chú:"
-            android:textColor="#000000"
-            android:textSize="18dp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_toRightOf="@+id/imageRoom"
             android:layout_below="@+id/tenphong"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
-            android:id="@+id/note"
-            ></TextView>
+            android:layout_toRightOf="@+id/imageRoom"
+            android:fontFamily="sans-serif-condensed"
+            android:text="ghi chú:"
+            android:textColor="#000000"
+            android:textSize="15dp"></TextView>
+
         <RelativeLayout
+            android:id="@+id/relagia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_below="@+id/imageRoom"
-            android:layout_marginTop="-20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="9dp"
             android:layout_marginRight="12dp"
-            android:id="@+id/relagia"
-
             >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giá:"
-                    android:textColor="#042f66"
-                    android:textSize="20dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="3dp"
-                    android:id="@+id/text_gia"
-                    ></TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="11111111"
-                    android:textColor="#042f66"
-                    android:textSize="20dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layout_toRightOf="@+id/text_gia"
+            <TextView
+                android:id="@+id/text_gia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Giá:"
+                android:textColor="#042f66"
+                android:textSize="20dp"></TextView>
+            <TextView
+                android:id="@+id/text_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/text_gia"
+                android:fontFamily="sans-serif-condensed"
+                android:text="11111111"
+                android:textColor="#042f66"
+                android:textSize="20dp"></TextView>
 
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="3dp"
-                    android:id="@+id/text_price"
-                    ></TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="đ"
-                    android:textColor="#042f66"
-                    android:textSize="20dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layout_toRightOf="@+id/text_price"
+            <TextView
+                android:id="@+id/text_vnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/text_price"
+                android:fontFamily="sans-serif-condensed"
 
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="3dp"
-                    android:id="@+id/text_vnd"
-                    ></TextView>
+                android:text="đ"
+                android:textColor="#042f66"
+                android:textSize="20dp"></TextView>
         </RelativeLayout>
 
         <Button
+            android:id="@+id/submit"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="81dp"
+            android:layout_below="@+id/relagia"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="6dp"
             android:backgroundTint="@color/xanh_dam"
             android:text="Đặt phòng"
-            android:textStyle="bold"
             android:textSize="18dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/relagia"
-            android:layout_marginRight="12dp"
-            android:id="@+id/submit"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="6dp"
-            />
+            android:textStyle="bold" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

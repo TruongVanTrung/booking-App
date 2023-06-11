@@ -1,6 +1,6 @@
 package com.example.bookingapp.Model
 
-data class DoitacModel(
+data class Partner2Model(
     val id : Int ?= null,
     val image : ArrayList<String>? = null,
     val name :String? = null,

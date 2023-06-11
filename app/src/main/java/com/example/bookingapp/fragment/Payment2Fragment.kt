@@ -52,7 +52,7 @@ class Payment2Fragment : Fragment() {
         val sharePreference = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
         val getID = sharePreference.getString("ID","").toString()
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-        val detail = serviceGenerator.getAllDetailPayment1(getID.toInt(),2)
+        val detail = serviceGenerator.getAllDetailPayment1(getID.toInt(),1)
         detail.enqueue(object :
             retrofit2.Callback<MutableList<DetailOrderModel>> {
             override fun onResponse(
@@ -60,7 +60,7 @@ class Payment2Fragment : Fragment() {
                 response: Response<MutableList<DetailOrderModel>>
             ) {
                 if (response.isSuccessful){
-                    val imageList = ArrayList<DetailOrderModel>() // Create image list
+//                    val imageList = ArrayList<DetailOrderModel>() // Create image list
                     recyclerView2.apply {
                         layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                         adapter = DetailOrderAdapter2(response.body()!!)

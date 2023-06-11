@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.bookingapp.Adapter.DoitacAdapter
 import com.example.bookingapp.Adapter.PhobienAdapter
@@ -78,88 +79,53 @@ class DetailDoitacaFragment : Fragment() {
         var tendanhmuc = arguments?.getString("tendanhmuc")
         var location = arguments?.getString("location")
         var info = arguments?.getString("note")
+        var utilities = arguments?.getStringArrayList("utilities")
+        var popular = arguments?.getStringArrayList("popular")
+        var image = arguments?.getStringArrayList("image")
 
         text_tendoitac.text = tendoitac
         text_tendanhmuc.text = tendanhmuc
         text_location.text = location
         gioithieu.text = info
 
+        val imageList = ArrayList<SlideModel>() // Create image list
+        for (i in image!!){
+            Log.e("image", i.toString())
+            imageList.add(SlideModel(i.toString()))
+        }
+
+        val imageSlider = view.findViewById<ImageSlider>(R.id.image_slider)
+        imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
+
         click_back.setOnClickListener {
             requireActivity().onBackPressed()
         }
 
         if (id != null){
-            val imageAll = serviceGenerator.getAllImageDoitac(id)
-            imageAll.enqueue(object :
-                retrofit2.Callback<MutableList<ModelSlide>> {
-                override fun onResponse(
-                    call: Call<MutableList<ModelSlide>>,
-                    response: Response<MutableList<ModelSlide>>
-                ) {
-                    if (response.isSuccessful){
-                        val imageList = ArrayList<SlideModel>() // Create image list
-                        for (i in response.body()!!){
-                            Log.e("image", i.image.toString())
-                            imageList.add(SlideModel(i.image.toString(), ""))
-                        }
+//
+            val utilitiList = ArrayList<TienichModel>() // Create image list
+            for (i in utilities!!){
+                Log.e("utiliti", i.toString())
+                utilitiList.add(TienichModel(i.toString()))
+            }
+            recyclerViewTienich.apply {
+                layoutManager = GridLayoutManager(activity,2)
+                adapter = TienichAdapter(utilitiList!!)
+            }
 
-                        val imageSlider = view.findViewById<ImageSlider>(R.id.image_slider)
-                        imageSlider.setImageList(imageList)
-
-                    }
+            val popularList = ArrayList<PhobienModel>() // Create image list
+            for (i in popular!!){
+                Log.e("popular", i.toString())
+                if(i != null) {
+                    popularList.add(PhobienModel(i.toString()))
+                }else{
+                    Log.e("popular_null", "null")
                 }
-
-                override fun onFailure(call: Call<MutableList<ModelSlide>>, t: Throwable) {
-                    t.printStackTrace()
-                    Log.e("error", t.message.toString())
-                }
-
-            })
-
-            val tenichAll = serviceGenerator.getAllTienichDoitac(id)
-            tenichAll.enqueue(object :
-                retrofit2.Callback<MutableList<TienichModel>> {
-                override fun onResponse(
-                    call: Call<MutableList<TienichModel>>,
-                    response: Response<MutableList<TienichModel>>
-                ) {
-                    if (response.isSuccessful){
-                        recyclerViewTienich.apply {
-                            layoutManager = GridLayoutManager(activity,2)
-                            adapter = TienichAdapter(response.body()!!)
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<MutableList<TienichModel>>, t: Throwable) {
-                    t.printStackTrace()
-                    Log.e("error", t.message.toString())
-                }
-
-            })
-
-            val phobienAll = serviceGenerator.getAllPhobienDoitac(id)
-            phobienAll.enqueue(object :
-                retrofit2.Callback<MutableList<PhobienModel>> {
-                override fun onResponse(
-                    call: Call<MutableList<PhobienModel>>,
-                    response: Response<MutableList<PhobienModel>>
-                ) {
-                    if (response.isSuccessful){
-                        recyclerViewPhobien.apply {
-                            layoutManager = GridLayoutManager(activity,2)
-                            adapter = PhobienAdapter(response.body()!!)
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<MutableList<PhobienModel>>, t: Throwable) {
-                    t.printStackTrace()
-                    Log.e("error", t.message.toString())
-                }
-
-            })
-
+            }
+            recyclerViewPhobien.apply {
+                layoutManager = GridLayoutManager(activity,2)
+                adapter = PhobienAdapter(popularList!!)
+            }
 
             val roomAll = serviceGenerator.getAllRoomDoitac(id)
             roomAll.enqueue(object :

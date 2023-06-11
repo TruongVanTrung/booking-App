@@ -6,7 +6,9 @@ data class PymentModel(
     val name : String ?= null,
     val phone : String ?= null,
     val email : String ?= null,
+    val address : String ?= null,
     val count : Int ?= null,
+    val price : Int ?= null,
     val dateNhan : String ?= null,
     val dateTra : String ?= null,
 )

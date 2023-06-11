@@ -10,6 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.bookingapp.ApiService
 import com.example.bookingapp.Model.DetailOrderModel
 import com.example.bookingapp.Model.ResponseMessageModel
@@ -24,7 +27,8 @@ class DetailOrderAdapter2(val detailOrder: MutableList<DetailOrderModel>): Recyc
 
     inner class DetailOrderViewHolder(itemView: View): RecyclerView.ViewHolder (itemView){
 
-        val imageRoom = itemView.findViewById<ImageView>(R.id.imageRoom)
+        val imageSlider : ImageSlider = itemView.findViewById(R.id.image_slider)
+        val imageList = ArrayList<SlideModel>()
         val tenphong = itemView.findViewById<TextView>(R.id.tenphong)
         val iddonhang = itemView.findViewById<TextView>(R.id.iddonhang)
         val soluong = itemView.findViewById<TextView>(R.id.soluong)
@@ -41,14 +45,18 @@ class DetailOrderAdapter2(val detailOrder: MutableList<DetailOrderModel>): Recyc
     }
 
     override fun onBindViewHolder(holder: DetailOrderViewHolder, position: Int) {
-        Picasso.get().load(detailOrder[position].img).into(holder.imageRoom)
-        holder.tenphong.text = detailOrder[position].nameRoom
+        for (i in detailOrder[position].image!!){
+            Log.e("image_slide", i)
+            holder.imageList.add(SlideModel(i))
+        }
+        holder.imageSlider.setImageList(holder.imageList, ScaleTypes.CENTER_CROP)
+        holder.tenphong.text = detailOrder[position].name
         holder.iddonhang.text = detailOrder[position].id.toString()
-        holder.soluong.text = detailOrder[position].soluong.toString()
-        holder.price.text = detailOrder[position].gia.toString()
+        holder.soluong.text = detailOrder[position].quantity.toString()
+        holder.price.text = detailOrder[position].price.toString()
         holder.text_price.text = detailOrder[position].totalPrice.toString()
-        holder.dateNhan.text = detailOrder[position].dateNhan
-        holder.dateTra.text = detailOrder[position].dateTra
+        holder.dateNhan.text = detailOrder[position].check_in
+        holder.dateTra.text = detailOrder[position].check_out
 
 
     }

@@ -17,9 +17,9 @@
         android:id="@+id/relativeCard"
         >
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
             android:id="@+id/imageCardCategory"></ImageView>
         <TextView
             android:layout_width="wrap_content"
@@ -29,6 +29,8 @@
             android:text="danhmuc"
             android:textColor="@color/black"
             android:textSize="21dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:fontFamily="sans-serif-condensed"
             android:layout_below="@+id/imageCardCategory"
             ></TextView>
